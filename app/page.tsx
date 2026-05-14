@@ -1,22 +1,25 @@
 const INSTAGRAM_AGENCIA =
   "https://www.instagram.com/formula.agencia/";
 
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Intendente+Tarigo+B1727+Roque+P%C3%A9rez+Buenos+Aires+Argentina";
+
 const services = [
   {
-    title: "Marketing y comunicación",
-    body: "Mensajes claros y coherentes con la marca: posicionamiento, campañas y piezas que hablan con tu audiencia.",
+    title: "Campañas en Meta Ads",
+    body: "Publicidad en Facebook e Instagram: segmentación, creatividades y optimización para que tu inversión rinda.",
   },
   {
-    title: "Contenido y redes",
-    body: "Calendario, copy, reels y formatos adaptados a cada canal para mantener presencia constante y profesional.",
+    title: "Creación de contenido",
+    body: "Piezas y formatos alineados a tu marca: copy, reels, estáticos y adaptaciones para cada red.",
   },
   {
-    title: "Community management",
-    body: "Moderación, respuestas y conversación con foco en la experiencia de quienes siguen tu marca.",
+    title: "Redes sociales",
+    body: "Planificación, publicación y conversación con tu comunidad para una presencia constante y profesional.",
   },
   {
-    title: "Seguimiento y mejora",
-    body: "Lectura de métricas y aprendizajes para ajustar lo que publicamos y cómo lo decimos.",
+    title: "Marketing digital estratégico",
+    body: "Decisiones con criterio: qué decir, a quién y en qué momento, conectando comunicación y objetivos de negocio.",
   },
 ];
 
@@ -39,6 +42,12 @@ export default function Home() {
             </a>
           </div>
           <div className="flex shrink-0 items-center gap-2">
+            <a
+              href="#sobre"
+              className="hidden text-xs font-medium text-foreground/60 transition hover:text-accent sm:inline"
+            >
+              Sobre mí
+            </a>
             <a
               href={INSTAGRAM_AGENCIA}
               target="_blank"
@@ -68,10 +77,12 @@ export default function Home() {
               Agencia Fórmula · Marketing y comunicación
             </p>
             <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-              Redes con intención, comunidad con criterio
+              Potenciamos tu negocio con marketing digital estratégico
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/75">
-              Soy Juampi, community manager en{" "}
+              Soy{" "}
+              <strong className="font-semibold text-foreground">Juan Pablo Cravero</strong>{" "}
+              (Juampi), licenciado en Comunicación enfocado en marketing. Trabajo en{" "}
               <a
                 href={INSTAGRAM_AGENCIA}
                 target="_blank"
@@ -79,9 +90,8 @@ export default function Home() {
                 className="font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
               >
                 Agencia Fórmula
-              </a>
-              . Acompaño a marcas y emprendedores a ordenar su presencia digital, publicar con constancia y
-              construir vínculos reales con su audiencia.
+              </a>{" "}
+              con foco en community management, contenido y la operación diaria de tus redes.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -94,7 +104,7 @@ export default function Home() {
                 href="#servicios"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
               >
-                Ver enfoque
+                Servicios
               </a>
               <a
                 href={INSTAGRAM_AGENCIA}
@@ -102,9 +112,29 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
               >
-                Ver la agencia en Instagram
+                Instagram
               </a>
             </div>
+          </div>
+        </section>
+
+        <section
+          id="sobre"
+          className="border-t border-black/5 px-6 py-16 dark:border-white/10"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-semibold tracking-tight">Sobre mí</h2>
+            <p className="mt-4 text-pretty leading-relaxed text-foreground/75">
+              Me formé como <strong className="text-foreground">licenciado en Comunicación</strong> con
+              orientación al <strong className="text-foreground">marketing</strong>: combino criterio de
+              mensaje, conocimiento de audiencias y trabajo cotidiano en redes para que tu marca crezca con
+              claridad y constancia.
+            </p>
+            <p className="mt-4 text-sm text-foreground/60">
+              Atención y consultas por WhatsApp e Instagram{" "}
+              <span className="font-medium text-foreground">las 24 horas</span>, como figura en nuestro perfil
+              de negocio.
+            </p>
           </div>
         </section>
 
@@ -114,19 +144,19 @@ export default function Home() {
         >
           <div className="mx-auto max-w-5xl">
             <h2 className="text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-              Cómo sumamos desde marketing y comunicación
+              Qué hacemos en Agencia Fórmula
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-center text-foreground/70">
-              En{" "}
+              Estos son los pilares que compartimos en{" "}
               <a
                 href={INSTAGRAM_AGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-accent underline decoration-accent/30 underline-offset-4"
               >
-                Agencia Fórmula
-              </a>{" "}
-              trabajamos comunicación integral; yo me enfoco en la gestión de comunidad y el ritmo diario en redes.
+                @formula.agencia
+              </a>
+              ; vos me tenés a Juampi para el día a día de comunidad, contenido y coordinación en redes.
             </p>
             <ul className="mt-14 grid gap-6 sm:grid-cols-2">
               {services.map((item) => (
@@ -150,8 +180,8 @@ export default function Home() {
         >
           <h2 className="text-2xl font-semibold tracking-tight">¿Arrancamos?</h2>
           <p className="mt-3 text-foreground/70">
-            Contame en qué etapa está tu marca y qué canales querés potenciar. También podés conocer el trabajo de
-            la agencia en Instagram.
+            Escribime por el canal que prefieras. Si estás cerca de Roque Pérez, también podés ubicarnos en el
+            mapa.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <a
@@ -177,12 +207,26 @@ export default function Home() {
               @formula.agencia
             </a>
           </div>
+          <div className="mt-12 rounded-2xl border border-black/5 bg-surface p-6 text-left text-sm dark:border-white/10">
+            <h3 className="font-semibold text-foreground">Ubicación</h3>
+            <address className="mt-2 not-italic leading-relaxed text-foreground/75">
+              Intendente Tarigo, B1727 Roque Pérez, Provincia de Buenos Aires, Argentina.
+            </address>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
+            >
+              Ver en Google Maps
+            </a>
+          </div>
         </section>
       </main>
 
-      <footer className="border-t border-black/5 py-8 text-center text-sm text-foreground/50 dark:border-white/10">
+      <footer className="border-t border-black/5 px-6 py-8 text-center text-sm text-foreground/50 dark:border-white/10">
         <p>
-          © {new Date().getFullYear()} Juampi · Community Manager ·{" "}
+          © {new Date().getFullYear()} Juan Pablo Cravero (Juampi) · Community Manager ·{" "}
           <a
             href={INSTAGRAM_AGENCIA}
             target="_blank"
@@ -191,6 +235,9 @@ export default function Home() {
           >
             Agencia Fórmula
           </a>
+        </p>
+        <p className="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-foreground/45">
+          Intendente Tarigo, B1727 Roque Pérez, Provincia de Buenos Aires, Argentina.
         </p>
       </footer>
     </div>

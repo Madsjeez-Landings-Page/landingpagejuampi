@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Juampi | Community Manager — Agencia Fórmula",
+  title: "Juan Pablo Cravero (Juampi) | Agencia Fórmula — Marketing digital",
   description:
-    "Community management y gestión de redes en Agencia Fórmula (marketing y comunicación). Conocé el trabajo en Instagram @formula.agencia.",
+    "Potenciamos tu negocio con marketing digital estratégico: Meta Ads, creación de contenido y redes. Lic. en Comunicación · Roque Pérez, Buenos Aires. @formula.agencia",
 };
 
 export default function RootLayout({
