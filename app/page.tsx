@@ -1,5 +1,7 @@
 const INSTAGRAM_AGENCIA =
   "https://www.instagram.com/formula.agencia/";
+const INSTAGRAM_JUAMPI = "https://www.instagram.com/juampicrav/";
+const EMAIL = "juanpablocraveromkt@gmail.com";
 
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Intendente+Tarigo+B1727+Roque+P%C3%A9rez+Buenos+Aires+Argentina";
@@ -40,6 +42,14 @@ export default function Home() {
             >
               Agencia Fórmula · Marketing y comunicación
             </a>
+            <a
+              href={INSTAGRAM_JUAMPI}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-0.5 block text-xs text-foreground/45 transition hover:text-accent"
+            >
+              @juampicrav
+            </a>
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <a
@@ -55,6 +65,14 @@ export default function Home() {
               className="hidden rounded-full border border-foreground/15 px-3 py-2 text-xs font-medium transition hover:bg-foreground/5 sm:inline-flex"
             >
               @formula.agencia
+            </a>
+            <a
+              href={INSTAGRAM_JUAMPI}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden rounded-full border border-foreground/15 px-3 py-2 text-xs font-medium transition hover:bg-foreground/5 sm:inline-flex"
+            >
+              @juampicrav
             </a>
             <a
               href="#contacto"
@@ -112,7 +130,15 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
               >
-                Instagram
+                @formula.agencia
+              </a>
+              <a
+                href={INSTAGRAM_JUAMPI}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
+              >
+                @juampicrav
               </a>
             </div>
           </div>
@@ -133,7 +159,16 @@ export default function Home() {
             <p className="mt-4 text-sm text-foreground/60">
               Atención y consultas por WhatsApp e Instagram{" "}
               <span className="font-medium text-foreground">las 24 horas</span>, como figura en nuestro perfil
-              de negocio.
+              de negocio. También podés ver mi día a día en{" "}
+              <a
+                href={INSTAGRAM_JUAMPI}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent underline decoration-accent/30 underline-offset-4"
+              >
+                @juampicrav
+              </a>
+              .
             </p>
           </div>
         </section>
@@ -185,10 +220,10 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <a
-              href="mailto:hola@ejemplo.com"
-              className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold text-white dark:text-[#0f0e0c] sm:w-auto"
+              href={`mailto:${EMAIL}`}
+              className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full bg-accent px-4 text-sm font-semibold text-white break-all dark:text-[#0f0e0c] sm:w-auto sm:break-normal sm:px-6"
             >
-              Escribime por mail
+              {EMAIL}
             </a>
             <a
               href="https://wa.me/5492227506533"
@@ -204,7 +239,15 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium hover:bg-foreground/5 sm:w-auto"
             >
-              @formula.agencia
+              Agencia · @formula.agencia
+            </a>
+            <a
+              href={INSTAGRAM_JUAMPI}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium hover:bg-foreground/5 sm:w-auto"
+            >
+              Juampi · @juampicrav
             </a>
           </div>
           <div className="mt-12 rounded-2xl border border-black/5 bg-surface p-6 text-left text-sm dark:border-white/10">
@@ -226,14 +269,30 @@ export default function Home() {
 
       <footer className="border-t border-black/5 px-6 py-8 text-center text-sm text-foreground/50 dark:border-white/10">
         <p>
-          © {new Date().getFullYear()} Juan Pablo Cravero (Juampi) · Community Manager ·{" "}
+          © {new Date().getFullYear()} Juan Pablo Cravero (Juampi) ·{" "}
+          <a
+            href={`mailto:${EMAIL}`}
+            className="text-foreground/60 underline-offset-4 transition hover:text-accent hover:underline"
+          >
+            {EMAIL}
+          </a>
+          {" · "}
+          <a
+            href={INSTAGRAM_JUAMPI}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/60 underline-offset-4 transition hover:text-accent hover:underline"
+          >
+            @juampicrav
+          </a>
+          {" · "}
           <a
             href={INSTAGRAM_AGENCIA}
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/60 underline-offset-4 transition hover:text-accent hover:underline"
           >
-            Agencia Fórmula
+            @formula.agencia
           </a>
         </p>
         <p className="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-foreground/45">
