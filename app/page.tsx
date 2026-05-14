@@ -161,10 +161,12 @@ export default function Home() {
               Escribime por mail
             </a>
             <a
-              href="https://wa.me/"
+              href="https://wa.me/5492227506533"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium hover:bg-foreground/5 sm:w-auto"
             >
-              WhatsApp
+              WhatsApp (+54 9 2227 50-6533)
             </a>
             <a
               href={INSTAGRAM_AGENCIA}
