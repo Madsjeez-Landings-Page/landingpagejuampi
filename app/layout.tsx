@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Juampi | Community Manager",
+  title: "Juampi | Community Manager — Agencia Fórmula",
   description:
-    "Gestión de redes sociales, contenido y comunidad para marcas que quieren crecer con estrategia.",
+    "Community management y gestión de redes en Agencia Fórmula (marketing y comunicación). Conocé el trabajo en Instagram @formula.agencia.",
 };
 
 export default function RootLayout({

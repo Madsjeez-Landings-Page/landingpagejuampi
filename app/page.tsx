@@ -1,19 +1,22 @@
+const INSTAGRAM_AGENCIA =
+  "https://www.instagram.com/formula.agencia/";
+
 const services = [
   {
-    title: "Estrategia y calendario",
-    body: "Planificación editorial alineada a tus objetivos de negocio y a tu voz de marca.",
+    title: "Marketing y comunicación",
+    body: "Mensajes claros y coherentes con la marca: posicionamiento, campañas y piezas que hablan con tu audiencia.",
   },
   {
-    title: "Contenido y diseño",
-    body: "Piezas listas para publicar: copy, reels, carruseles y adaptaciones por canal.",
+    title: "Contenido y redes",
+    body: "Calendario, copy, reels y formatos adaptados a cada canal para mantener presencia constante y profesional.",
   },
   {
-    title: "Comunidad y moderación",
-    body: "Respuestas, conversación y cuidado del tono para que tu audiencia se sienta escuchada.",
+    title: "Community management",
+    body: "Moderación, respuestas y conversación con foco en la experiencia de quienes siguen tu marca.",
   },
   {
-    title: "Métricas claras",
-    body: "Reportes simples con lo que importa: alcance, engagement y aprendizajes accionables.",
+    title: "Seguimiento y mejora",
+    body: "Lectura de métricas y aprendizajes para ajustar lo que publicamos y cómo lo decimos.",
   },
 ];
 
@@ -21,16 +24,36 @@ export default function Home() {
   return (
     <div className="flex min-h-full flex-col">
       <header className="border-b border-black/5 bg-surface/80 backdrop-blur-md dark:border-white/10">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <span className="text-sm font-semibold tracking-tight">
-            Juampi · Community Manager
-          </span>
-          <a
-            href="#contacto"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:text-[#0f0e0c]"
-          >
-            Hablemos
-          </a>
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-6">
+          <div className="min-w-0">
+            <span className="block truncate text-sm font-semibold tracking-tight">
+              Juampi · Community Manager
+            </span>
+            <a
+              href={INSTAGRAM_AGENCIA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-foreground/55 transition hover:text-accent"
+            >
+              Agencia Fórmula · Marketing y comunicación
+            </a>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={INSTAGRAM_AGENCIA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden rounded-full border border-foreground/15 px-3 py-2 text-xs font-medium transition hover:bg-foreground/5 sm:inline-flex"
+            >
+              @formula.agencia
+            </a>
+            <a
+              href="#contacto"
+              className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:text-[#0f0e0c]"
+            >
+              Hablemos
+            </a>
+          </div>
         </div>
       </header>
 
@@ -42,14 +65,23 @@ export default function Home() {
           />
           <div className="relative mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-              Community management
+              Agencia Fórmula · Marketing y comunicación
             </p>
             <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-              Redes con intención, contenido con criterio
+              Redes con intención, comunidad con criterio
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/75">
-              Soy Juampi. Ayudo a marcas y emprendedores a ordenar su presencia digital,
-              publicar con constancia y construir una comunidad que confía.
+              Soy Juampi, community manager en{" "}
+              <a
+                href={INSTAGRAM_AGENCIA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
+              >
+                Agencia Fórmula
+              </a>
+              . Acompaño a marcas y emprendedores a ordenar su presencia digital, publicar con constancia y
+              construir vínculos reales con su audiencia.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -62,7 +94,15 @@ export default function Home() {
                 href="#servicios"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
               >
-                Ver servicios
+                Ver enfoque
+              </a>
+              <a
+                href={INSTAGRAM_AGENCIA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-8 text-sm font-medium transition hover:bg-foreground/5"
+              >
+                Ver la agencia en Instagram
               </a>
             </div>
           </div>
@@ -74,11 +114,19 @@ export default function Home() {
         >
           <div className="mx-auto max-w-5xl">
             <h2 className="text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-              Qué puedo hacer por tu marca
+              Cómo sumamos desde marketing y comunicación
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-center text-foreground/70">
-              Trabajo en conjunto con vos: entiendo el negocio, definimos prioridades y
-              ejecutamos con foco.
+              En{" "}
+              <a
+                href={INSTAGRAM_AGENCIA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent underline decoration-accent/30 underline-offset-4"
+              >
+                Agencia Fórmula
+              </a>{" "}
+              trabajamos comunicación integral; yo me enfoco en la gestión de comunidad y el ritmo diario en redes.
             </p>
             <ul className="mt-14 grid gap-6 sm:grid-cols-2">
               {services.map((item) => (
@@ -102,10 +150,10 @@ export default function Home() {
         >
           <h2 className="text-2xl font-semibold tracking-tight">¿Arrancamos?</h2>
           <p className="mt-3 text-foreground/70">
-            Contame en qué etapa está tu marca y qué canales querés potenciar. Te respondo
-            a la brevedad.
+            Contame en qué etapa está tu marca y qué canales querés potenciar. También podés conocer el trabajo de
+            la agencia en Instagram.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <a
               href="mailto:hola@ejemplo.com"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold text-white dark:text-[#0f0e0c] sm:w-auto"
@@ -118,12 +166,30 @@ export default function Home() {
             >
               WhatsApp
             </a>
+            <a
+              href={INSTAGRAM_AGENCIA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-full max-w-xs items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium hover:bg-foreground/5 sm:w-auto"
+            >
+              @formula.agencia
+            </a>
           </div>
         </section>
       </main>
 
       <footer className="border-t border-black/5 py-8 text-center text-sm text-foreground/50 dark:border-white/10">
-        © {new Date().getFullYear()} Juampi · Community Manager
+        <p>
+          © {new Date().getFullYear()} Juampi · Community Manager ·{" "}
+          <a
+            href={INSTAGRAM_AGENCIA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/60 underline-offset-4 transition hover:text-accent hover:underline"
+          >
+            Agencia Fórmula
+          </a>
+        </p>
       </footer>
     </div>
   );
