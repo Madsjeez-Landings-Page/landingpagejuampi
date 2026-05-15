@@ -18,6 +18,7 @@ import {
   Layers,
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
+import { ClientCasesCarousel } from "@/components/client-cases-carousel";
 import { InstagramLogo, WhatsAppLogo } from "@/components/brand-icons";
 import { BRAND_RGB } from "@/lib/brand";
 
@@ -197,6 +198,9 @@ export default function AgenciaLanding() {
             <a href="#servicios" className="transition-colors hover:text-[#648CEB]">
               Servicios
             </a>
+            <a href="#casos" className="transition-colors hover:text-[#648CEB]">
+              Casos
+            </a>
             <a href="#metodo" className="transition-colors hover:text-[#648CEB]">
               Método
             </a>
@@ -346,6 +350,8 @@ export default function AgenciaLanding() {
           </div>
         </div>
       </section>
+
+      <ClientCasesCarousel />
 
       <section id="metodo" className="relative z-10 px-6 py-24 md:px-8 md:py-32">
         <div className="mx-auto max-w-7xl">
