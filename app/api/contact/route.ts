@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createLead } from "@/lib/leads-store";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -109,6 +110,24 @@ export async function POST(req: Request) {
 
   const text = lines.join("\n");
   const html = `<pre style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.5">${escapeHtml(text)}</pre>`;
+
+  try {
+    await createLead({
+      name,
+      email,
+      phone,
+      company,
+      service,
+      budget,
+      body,
+    });
+  } catch (err) {
+    console.error("[contact] No se pudo guardar el lead:", err);
+    return NextResponse.json(
+      { ok: false, error: "No pudimos registrar tu consulta. Intentá más tarde." },
+      { status: 500 },
+    );
+  }
 
   if (apiKey && to && from) {
     const res = await fetch("https://api.resend.com/emails", {

@@ -20,6 +20,9 @@
 # production
 /build
 
+# leads (local dev only; production uses Vercel Blob)
+/data/
+
 # misc
 .DS_Store
 *.pem
