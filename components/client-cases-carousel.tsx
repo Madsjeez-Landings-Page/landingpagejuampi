@@ -4,47 +4,36 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { BRAND_RGB } from "@/lib/brand";
 
-/** Editá esta lista con clientes y casos reales cuando los tengas. */
 export const CLIENT_CASES = [
   {
-    tag: "Redes + contenido",
-    title: "Comercio local · alimentos",
+    tag: "Turismo · gastronomía",
+    title: "Estancia Los Álamos",
     summary:
-      "Calendario de publicaciones, reels de producto y tono de marca unificado para pasar de publicar “por publicar” a contar una historia clara.",
+      "Comunicación digital ordenada y alineada a la esencia del lugar: imagen de marca, redes y seguimiento constante en cada detalle.",
     quote:
-      "Por fin tenemos un feed que se ve profesional y la gente nos escribe con consultas concretas.",
-    author: "Dueña · Buenos Aires",
-    highlight: "Más mensajes directos calificados",
+      "Trabajar con Fórmula nos ayudó a ordenar y potenciar toda nuestra comunicación digital. No solo mejoraron la imagen de nuestra marca, sino que también lograron transmitir la esencia del lugar en redes sociales. Se nota el compromiso, la creatividad y el seguimiento constante en cada detalle.",
+    author: "Karina, Patricia y Dalma · Estancia Los Álamos",
+    highlight: "Marca e identidad en redes",
   },
   {
-    tag: "Meta Ads",
-    title: "Servicios profesionales",
+    tag: "Restaurante · bar",
+    title: "Alameda Resto Bar",
     summary:
-      "Campañas de captación con creatividades probadas, segmentación por zona y seguimiento quincenal para ajustar inversión.",
+      "Redes más profesionales y activas, con ideas nuevas, contenido creativo y estrategias orientadas a resultados.",
     quote:
-      "Entendimos qué anuncios funcionan y dejamos de tirar presupuesto a ciegas.",
-    author: "Responsable de marketing · interior",
-    highlight: "Costo por lead bajo control",
+      "Desde que empezamos a trabajar con Fórmula, nuestras redes empezaron a verse mucho más profesionales y activas. Siempre aportan ideas nuevas, contenido creativo y estrategias que generan resultados. Muy recomendados.",
+    author: "Alameda Resto Bar",
+    highlight: "Redes activas y profesionales",
   },
   {
-    tag: "Identidad + redes",
-    title: "Marca personal · emprendimiento",
+    tag: "Crecimiento · multi-sucursal",
+    title: "El Bunker del Escabio",
     summary:
-      "Guía de voz, plantillas de historias y piezas simples para sostener constancia sin depender de tendencias pasajeras.",
+      "Acompañamiento desde el inicio: de una sucursal a dos, con creatividad, ideas y presencia constante en redes y comunicación.",
     quote:
-      "Juampi nos ordenó el mensaje; ahora sé qué decir cada semana sin bloquearme.",
-    author: "Fundadora · proyecto propio",
-    highlight: "Constancia + coherencia visual",
-  },
-  {
-    tag: "Community + pauta",
-    title: "PyME · producto regional",
-    summary:
-      "Respuesta en comentarios y MD, FAQs armadas y remarketing suave para cerrar la venta después del primer contacto.",
-    quote:
-      "Se nota que hay alguien detrás de la cuenta; los clientes vuelven y recomiendan.",
-    author: "Director comercial · La Pampa",
-    highlight: "Más recompra y referidos",
+      "Fórmula nos acompaña desde el comienzo de El Bunker. Arrancamos con una sola sucursal y hoy, después de mucho trabajo, ya contamos con dos. Siempre estuvieron presentes aportando ideas, creatividad y ayudándonos a crecer en redes y comunicación. Juampi siempre está atento y predispuesto.",
+    author: "Iván · El Bunker del Escabio",
+    highlight: "De 1 a 2 sucursales",
   },
 ] as const;
 
