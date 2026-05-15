@@ -88,6 +88,37 @@ function AccordionItem({ title, content }: { title: string; content: string }) {
   );
 }
 
+/** Lockup con texto marino: sobre #030303 no contrasta; chip crema alinea con manual y asegura legibilidad. */
+function FormulaBrandLogo({
+  priority = false,
+  size,
+}: {
+  priority?: boolean;
+  size: "header" | "footer";
+}) {
+  const header = size === "header";
+  return (
+    <span
+      className={`inline-flex items-center rounded-xl bg-[#f2efe8] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_0_0_1px_rgba(10,24,46,0.08)] ${
+        header ? "px-2.5 py-1.5" : "px-3 py-2"
+      }`}
+    >
+      <Image
+        src="/logo-formula-lockup.png"
+        alt="fórmula AGENCIA"
+        width={header ? 200 : 240}
+        height={header ? 40 : 48}
+        priority={priority}
+        className={
+          header
+            ? "h-8 w-auto max-w-[180px] object-contain object-left sm:h-9 sm:max-w-[220px]"
+            : "h-10 w-auto max-w-[260px] object-contain sm:h-11"
+        }
+      />
+    </span>
+  );
+}
+
 const services = [
   {
     icon: Megaphone,
@@ -160,14 +191,7 @@ export default function AgenciaLanding() {
             className="flex shrink-0 items-center"
             aria-label="fórmula AGENCIA — inicio"
           >
-            <Image
-              src="/logo-formula-lockup.png"
-              alt="fórmula AGENCIA"
-              width={200}
-              height={40}
-              className="h-8 w-auto max-w-[180px] object-contain object-left sm:h-9 sm:max-w-[220px]"
-              priority
-            />
+            <FormulaBrandLogo priority size="header" />
           </a>
           <div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-400 lg:flex">
             <a href="#sobre" className="transition-colors hover:text-[#648CEB]">
@@ -485,13 +509,7 @@ export default function AgenciaLanding() {
 
       <footer className="border-t border-white/5 bg-black px-6 py-14 text-center md:py-16">
         <div className="mb-8 flex justify-center">
-          <Image
-            src="/logo-formula-lockup.png"
-            alt="fórmula AGENCIA"
-            width={240}
-            height={48}
-            className="h-10 w-auto max-w-[260px] object-contain sm:h-11"
-          />
+          <FormulaBrandLogo size="footer" />
         </div>
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600">
           © {new Date().getFullYear()} fórmula AGENCIA · Juan Pablo Cravero (Juampi)
