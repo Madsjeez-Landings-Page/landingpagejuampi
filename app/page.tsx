@@ -3,14 +3,10 @@
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   ArrowRight,
-  MessageCircle,
   BarChart3,
   Megaphone,
   Layout,
-  AtSign,
-  Mail,
   Sparkles,
-  Globe,
   Target,
   Rocket,
   Search,
@@ -20,13 +16,11 @@ import {
   Award,
   Layers,
 } from "lucide-react";
+import { LeadForm } from "@/components/lead-form";
+import { InstagramLogo, WhatsAppLogo } from "@/components/brand-icons";
 
 const INSTAGRAM_AGENCIA = "https://www.instagram.com/formula.agencia/";
-const INSTAGRAM_JUAMPI = "https://www.instagram.com/juampicrav/";
-const EMAIL = "juanpablocraveromkt@gmail.com";
 const WA_URL = "https://wa.me/5492227506533";
-const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Intendente+Tarigo+B1727+Roque+P%C3%A9rez+Buenos+Aires+Argentina";
 const ADDRESS =
   "Intendente Tarigo, B1727 Roque Pérez, Provincia de Buenos Aires, Argentina";
 
@@ -154,7 +148,7 @@ export default function AgenciaLanding() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8">
-          <a href="#" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#00D084] to-emerald-800 shadow-lg shadow-[#00D084]/20">
               <span className="text-xl font-black italic text-black">F</span>
             </div>
@@ -168,29 +162,29 @@ export default function AgenciaLanding() {
             </div>
           </a>
           <div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-400 lg:flex">
-            <a href="#metodo" className="transition-colors hover:text-[#00D084]">
-              Método
-            </a>
             <a href="#servicios" className="transition-colors hover:text-[#00D084]">
               Servicios
             </a>
-            <a href="#enfoque" className="transition-colors hover:text-[#00D084]">
-              Enfoque
+            <a href="#metodo" className="transition-colors hover:text-[#00D084]">
+              Método
             </a>
             <a href="#faq" className="transition-colors hover:text-[#00D084]">
               FAQ
             </a>
+            <a href="#contacto" className="transition-colors hover:text-[#00D084]">
+              Contacto
+            </a>
           </div>
           <a
-            href="#cta"
+            href="#contacto"
             className="rounded-full bg-white px-4 py-2.5 text-xs font-black uppercase tracking-widest text-black shadow-xl shadow-white/5 transition-all hover:scale-105 hover:bg-[#00D084] active:scale-95 sm:px-6"
           >
-            Iniciar proyecto
+            Pedir propuesta
           </a>
         </div>
       </header>
 
-      <section className="relative z-10 flex flex-col items-center px-6 pb-32 pt-40 text-center sm:pt-56">
+      <section className="relative z-10 flex flex-col items-center px-6 pb-28 pt-40 text-center sm:pt-56">
         <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#00D084] shadow-2xl backdrop-blur-md">
           <Sparkles className="h-3 w-3" />
           Marketing digital estratégico
@@ -204,48 +198,27 @@ export default function AgenciaLanding() {
           </span>
         </h1>
 
-        <p className="mb-6 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-2xl">
+        <p className="mb-14 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-2xl">
           Potenciamos tu negocio con marketing digital estratégico. En{" "}
-          <span className="font-semibold text-white">Agencia Fórmula</span>, Juan
-          Pablo Cravero (Juampi) —lic. en Comunicación enfocado en marketing— acompaña
-          marcas a transformar seguidores en una comunidad sólida.
-        </p>
-        <p className="mb-14 max-w-xl text-sm text-zinc-500">
-          Community management, contenido y operación diaria en redes. Atención por
-          WhatsApp e Instagram las 24 horas.
+          <span className="font-semibold text-white">Agencia Fórmula</span>, Juan Pablo
+          Cravero (Juampi) —lic. en Comunicación enfocado en marketing— acompaña marcas
+          a transformar seguidores en una comunidad sólida.{" "}
+          <span className="text-zinc-500">
+            Atención por WhatsApp e Instagram las 24 horas.
+          </span>
         </p>
 
-        <div className="flex flex-col items-center gap-6 sm:flex-row">
-          <a
-            href="#cta"
-            className="flex items-center gap-3 rounded-full bg-[#00D084] px-10 py-5 text-lg font-black text-black transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,208,132,0.4)]"
-          >
-            Agendar sesión estratégica <ArrowRight className="h-5 w-5" />
-          </a>
-          <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:gap-4">
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/40 px-4 py-2 text-xs font-bold text-zinc-400">
-              <Layout className="h-4 w-4 text-[#00D084]" />
-              Roque Pérez, Buenos Aires
-            </div>
-            <a
-              href={INSTAGRAM_AGENCIA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold uppercase tracking-widest text-[#00D084] transition hover:text-emerald-300"
-            >
-              @formula.agencia
-            </a>
-            <span className="hidden text-zinc-600 sm:inline">·</span>
-            <a
-              href={INSTAGRAM_JUAMPI}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold uppercase tracking-widest text-zinc-400 transition hover:text-[#00D084]"
-            >
-              @juampicrav
-            </a>
-          </div>
+        <div className="flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/40 px-4 py-2 text-xs font-bold text-zinc-400">
+          <Layout className="h-4 w-4 text-[#00D084]" />
+          {ADDRESS}
         </div>
+
+        <a
+          href="#contacto"
+          className="mt-10 flex items-center gap-3 rounded-full bg-[#00D084] px-10 py-5 text-lg font-black text-black transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,208,132,0.4)]"
+        >
+          Pedir propuesta <ArrowRight className="h-5 w-5" />
+        </a>
       </section>
 
       <div className="z-20 flex overflow-hidden border-y border-white/5 bg-zinc-900/50 py-8">
@@ -278,8 +251,8 @@ export default function AgenciaLanding() {
               Lo que hacemos en Agencia Fórmula
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-500">
-              Meta Ads, contenido, redes y estrategia — con Juampi al frente del
-              ritmo diario y la comunidad.
+              Meta Ads, contenido, redes y estrategia — con Juampi al frente del ritmo
+              diario y la comunidad.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -311,8 +284,8 @@ export default function AgenciaLanding() {
                 Un proceso pensado para avanzar sin fricción.
               </h3>
               <p className="mb-10 text-lg leading-relaxed text-zinc-500">
-                No vendemos soluciones mágicas: trabajo con auditoría clara, estrategia
-                de nicho y ejecución creativa alineada a tu marca.
+                Auditoría clara, estrategia de nicho y ejecución creativa alineada a tu
+                marca — sin promesas vacías.
               </p>
 
               <div className="space-y-6">
@@ -347,6 +320,27 @@ export default function AgenciaLanding() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 rounded-2xl border border-white/5 bg-zinc-900/80 p-4">
+                  <BarChart3 className="h-8 w-8 text-[#00D084]" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase text-zinc-500">
+                      Reporting
+                    </span>
+                    <p className="text-sm font-bold text-white">Métricas accionables</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 rounded-2xl border border-white/5 bg-zinc-900/80 p-4">
+                  <Rocket className="h-8 w-8 text-blue-500" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase text-zinc-500">
+                      Ritmo
+                    </span>
+                    <p className="text-sm font-bold text-white">Ejecución ágil</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-[#00D084]/20 to-blue-600/20 blur-3xl" />
@@ -360,79 +354,6 @@ export default function AgenciaLanding() {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="enfoque"
-        className="border-y border-white/5 bg-white/5 px-6 py-24 md:px-8 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-16 flex flex-col items-end justify-between gap-8 md:flex-row">
-            <div className="max-w-xl">
-              <h2 className="mb-6 text-4xl font-black text-white md:text-5xl">
-                Enfoque real.
-              </h2>
-              <p className="text-zinc-500">
-                Más allá de los likes: alineamos contenido, pauta y comunidad con
-                objetivos de negocio. Métricas y aprendizajes para ajustar cada mes.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <div className="rounded-2xl border border-white/5 bg-zinc-900 p-4">
-                <span className="flex items-center gap-2 text-2xl font-black text-[#00D084]">
-                  <BarChart3 className="h-8 w-8" />
-                </span>
-                <span className="mt-2 block text-[10px] font-bold uppercase text-zinc-500">
-                  Reporting claro
-                </span>
-              </div>
-              <div className="rounded-2xl border border-white/5 bg-zinc-900 p-4">
-                <span className="flex items-center gap-2 text-2xl font-black text-blue-500">
-                  <Rocket className="h-8 w-8" />
-                </span>
-                <span className="mt-2 block text-[10px] font-bold uppercase text-zinc-500">
-                  Ejecución ágil
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {[
-              {
-                title: "Pauta & performance",
-                tag: "Meta Ads",
-                gradient: "from-[#00D084]/30 to-emerald-900/40",
-              },
-              {
-                title: "Contenido & marca",
-                tag: "Creación",
-                gradient: "from-blue-600/20 to-violet-900/30",
-              },
-              {
-                title: "Comunidad & conversión",
-                tag: "Redes",
-                gradient: "from-orange-500/20 to-rose-900/30",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="group relative aspect-[4/5] cursor-default overflow-hidden rounded-[2rem]"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
-                <div className="absolute bottom-10 left-10">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#00D084]">
-                    {item.tag}
-                  </span>
-                  <h4 className="text-2xl font-bold text-white">{item.title}</h4>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -463,99 +384,54 @@ export default function AgenciaLanding() {
         </div>
       </section>
 
-      <section id="cta" className="px-6 pb-24 md:px-8 md:pb-32">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[3rem] border border-white/5 bg-zinc-900/50 p-12 text-center md:rounded-[4rem] md:p-20">
+      <section id="contacto" className="px-6 pb-24 md:px-8 md:pb-32">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[3rem] border border-white/5 bg-zinc-900/50 p-10 md:rounded-[4rem] md:p-16">
           <div className="absolute left-1/2 top-0 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-[#00D084]/5 blur-[120px]" />
-          <div className="relative z-10 flex flex-col items-center">
-            <div className="mb-12 flex h-24 w-24 animate-bounce items-center justify-center rounded-3xl bg-[#00D084]/20 text-[#00D084]">
-              <Rocket className="h-12 w-12" />
-            </div>
-            <h2 className="mb-8 text-4xl font-black tracking-tighter text-white md:text-6xl">
-              ¿LISTO PARA EL SIGUIENTE NIVEL?
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-3xl font-black tracking-tighter text-white md:text-5xl">
+              Hablemos de tu próximo paso
             </h2>
-            <p className="mb-12 max-w-xl text-lg italic leading-relaxed text-zinc-500 md:text-xl">
-              &ldquo;La mejor inversión que podés hacer hoy es en la atención de tu
-              audiencia.&rdquo;
+            <p className="mb-10 text-lg text-zinc-500">
+              Dejanos tus datos y contanos el objetivo. Respondemos con una propuesta
+              acorde. También podés escribirnos por los canales oficiales.
             </p>
 
-            <div className="flex flex-col gap-6 sm:flex-row">
-              <a
-                href={WA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 rounded-full bg-white px-10 py-5 text-base font-black text-black shadow-2xl transition-all hover:scale-105 md:px-12 md:py-6 md:text-lg"
-              >
-                <MessageCircle className="h-6 w-6" />
-                WhatsApp (+54 9 2227 50-6533)
-              </a>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="rounded-full bg-zinc-800 px-10 py-5 text-base font-black text-white transition-all hover:bg-zinc-700 md:px-12 md:py-6 md:text-lg"
-              >
-                {EMAIL}
-              </a>
+            <LeadForm />
+
+            <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/10 pt-10">
+              <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+                Canales oficiales
+              </p>
+              <div className="flex items-center justify-center gap-6">
+                <a
+                  href={INSTAGRAM_AGENCIA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:scale-105 hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10 hover:text-[#fd5f93]"
+                  aria-label="Instagram de Agencia Fórmula"
+                >
+                  <InstagramLogo className="h-8 w-8" />
+                </a>
+                <a
+                  href={WA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#25D366] transition-all hover:scale-105 hover:border-[#25D366]/50 hover:bg-[#25D366]/10"
+                  aria-label="WhatsApp Agencia Fórmula"
+                >
+                  <WhatsAppLogo className="h-8 w-8" />
+                </a>
+              </div>
             </div>
-            <p className="mt-8 max-w-lg text-sm text-zinc-500">{ADDRESS}</p>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 text-sm font-bold text-[#00D084] underline-offset-4 hover:underline"
-            >
-              Ver en Google Maps
-            </a>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-black px-6 py-16 text-center md:py-20">
-        <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={INSTAGRAM_AGENCIA}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-white/5 p-4 text-zinc-400 transition-all hover:bg-white/10 hover:text-[#00D084]"
-            aria-label="Instagram Agencia Fórmula"
-          >
-            <AtSign className="h-6 w-6" />
-            <span className="text-[10px] font-bold uppercase tracking-widest">
-              @formula.agencia
-            </span>
-          </a>
-          <a
-            href={INSTAGRAM_JUAMPI}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-white/5 p-4 text-zinc-400 transition-all hover:bg-white/10 hover:text-[#00D084]"
-            aria-label="Instagram Juampi"
-          >
-            <AtSign className="h-6 w-6" />
-            <span className="text-[10px] font-bold uppercase tracking-widest">
-              @juampicrav
-            </span>
-          </a>
-          <a
-            href={MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-white/5 p-4 text-zinc-400 transition-all hover:bg-white/10 hover:text-blue-500"
-            aria-label="Ubicación en mapa"
-          >
-            <Globe className="h-6 w-6" />
-          </a>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="rounded-full bg-white/5 p-4 text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
-            aria-label="Email"
-          >
-            <Mail className="h-6 w-6" />
-          </a>
-        </div>
+      <footer className="border-t border-white/5 bg-black px-6 py-14 text-center md:py-16">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600">
-          © {new Date().getFullYear()} Agencia Fórmula · Juan Pablo Cravero (Juampi) ·
-          Estrategia · Innovación · Crecimiento
+          © {new Date().getFullYear()} Agencia Fórmula · Juan Pablo Cravero (Juampi)
         </p>
-        <p className="mx-auto mt-4 max-w-xl text-xs leading-relaxed text-zinc-600">
+        <p className="mx-auto mt-3 max-w-xl text-xs leading-relaxed text-zinc-600">
           {ADDRESS}
         </p>
       </footer>

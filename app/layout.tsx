@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Agencia Fórmula | Juan Pablo Cravero (Juampi) — Marketing digital",
   description:
-    "Potenciamos tu negocio con marketing digital estratégico. Meta Ads, contenido y redes. Roque Pérez, Buenos Aires. @formula.agencia · @juampicrav",
+    "Potenciamos tu negocio con marketing digital estratégico. Meta Ads, contenido y redes. Roque Pérez, Buenos Aires. Contacto e Instagram @formula.agencia.",
 };
 
 export default function RootLayout({
