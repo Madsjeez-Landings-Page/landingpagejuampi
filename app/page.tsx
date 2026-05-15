@@ -173,6 +173,9 @@ export default function AgenciaLanding() {
             <a href="#sobre" className="transition-colors hover:text-[#648CEB]">
               Sobre
             </a>
+            <a href="#sobre-mi" className="transition-colors hover:text-[#648CEB]">
+              Sobre mí
+            </a>
             <a href="#servicios" className="transition-colors hover:text-[#648CEB]">
               Servicios
             </a>
@@ -214,8 +217,7 @@ export default function AgenciaLanding() {
           negocios y marcas a mejorar su comunicación digital a través de estrategia,
           contenido y creatividad.{" "}
           <span className="text-zinc-500">
-            Juan Pablo Cravero (Juampi) —lic. en Comunicación enfocado en marketing—
-            acompaña la ejecución. Atención por WhatsApp e Instagram las 24 horas.
+            Atención por WhatsApp e Instagram las 24 horas.
           </span>
         </p>
 
@@ -247,6 +249,30 @@ export default function AgenciaLanding() {
           </p>
           <p className="border-l-2 border-[#648CEB]/60 pl-6 text-xl font-medium leading-snug text-white md:text-2xl">
             Creemos que detrás de cada marca tiene que haber una estrategia real.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="sobre-mi"
+        className="relative z-10 border-t border-white/5 bg-[#030303] px-6 py-20 md:px-8 md:py-28"
+      >
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-8 text-xs font-black uppercase tracking-[0.4em] text-[#648CEB]">
+            Sobre mí
+          </h2>
+          <p className="mb-6 text-lg font-medium text-white md:text-xl">
+            Soy Juan Pablo Cravero, Licenciado en Comunicación y fundador de Fórmula.
+          </p>
+          <p className="mb-6 text-lg leading-relaxed text-zinc-400 md:text-xl">
+            Hace varios años trabajo en marketing digital y comunicación para marcas,
+            negocios y emprendimientos, combinando estrategia, creatividad y producción
+            de contenido para ayudar a que cada proyecto comunique mejor y crezca de
+            forma profesional.
+          </p>
+          <p className="text-lg leading-relaxed text-zinc-400 md:text-xl">
+            Mi enfoque está puesto en crear marcas con identidad, contenido de calidad y
+            una comunicación pensada para generar resultados reales.
           </p>
         </div>
       </section>
