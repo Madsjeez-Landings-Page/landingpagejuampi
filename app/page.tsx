@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   ArrowRight,
@@ -18,6 +19,7 @@ import {
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
 import { InstagramLogo, WhatsAppLogo } from "@/components/brand-icons";
+import { BRAND_RGB } from "@/lib/brand";
 
 const INSTAGRAM_AGENCIA = "https://www.instagram.com/formula.agencia/";
 const WA_URL = "https://wa.me/5492227506533";
@@ -47,13 +49,13 @@ function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`relative overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-900/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#00D084]/30 ${className}`}
+      className={`relative overflow-hidden rounded-[2rem] border border-white/5 bg-zinc-900/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#6495ED]/40 ${className}`}
     >
       <div
         className="pointer-events-none absolute -inset-px z-0 transition duration-300"
         style={{
           opacity,
-          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(0,208,132,0.1), transparent 40%)`,
+          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(${BRAND_RGB},0.14), transparent 40%)`,
         }}
       />
       <div className="relative z-10 h-full">{children}</div>
@@ -72,7 +74,7 @@ function AccordionItem({ title, content }: { title: string; content: string }) {
       >
         <span className="text-lg font-medium text-white">{title}</span>
         <ChevronDown
-          className={`h-5 w-5 text-zinc-500 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#00D084]" : ""}`}
+          className={`h-5 w-5 text-zinc-500 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#6495ED]" : ""}`}
         />
       </button>
       <div
@@ -117,7 +119,7 @@ export default function AgenciaLanding() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#030303] font-sans text-zinc-300 selection:bg-[#00D084] selection:text-black">
+    <div className="min-h-screen overflow-x-hidden bg-[#030303] font-sans text-zinc-300 selection:bg-[#6495ED] selection:text-white">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -136,8 +138,11 @@ export default function AgenciaLanding() {
       <div className="pointer-events-none fixed inset-0 z-50 mix-blend-overlay bg-noise" />
 
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute right-[-5%] top-[-10%] h-[600px] w-[600px] rounded-full bg-[#00D084]/10 blur-[150px]" />
-        <div className="absolute bottom-[10%] left-[-5%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[130px]" />
+        <div className="absolute right-[-5%] top-[-10%] h-[600px] w-[600px] rounded-full bg-[#6495ED]/10 blur-[150px]" />
+        <div
+          className="absolute bottom-[10%] left-[-5%] h-[500px] w-[500px] rounded-full blur-[130px]"
+          style={{ backgroundColor: `rgba(10, 24, 46, 0.45)` }}
+        />
       </div>
 
       <header
@@ -148,36 +153,43 @@ export default function AgenciaLanding() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8">
-          <a href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#00D084] to-emerald-800 shadow-lg shadow-[#00D084]/20">
-              <span className="text-xl font-black italic text-black">F</span>
+          <a href="/" className="flex items-center gap-3" aria-label="Agencia Fórmula — inicio">
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-white/20">
+              <Image
+                src="/logo-agencia-formula.png"
+                alt=""
+                width={48}
+                height={48}
+                className="object-contain p-1.5"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-black uppercase tracking-tighter text-white">
                 Agencia Fórmula
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00D084]">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6495ED]">
                 Marketing y comunicación
               </span>
             </div>
           </a>
           <div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-400 lg:flex">
-            <a href="#servicios" className="transition-colors hover:text-[#00D084]">
+            <a href="#servicios" className="transition-colors hover:text-[#6495ED]">
               Servicios
             </a>
-            <a href="#metodo" className="transition-colors hover:text-[#00D084]">
+            <a href="#metodo" className="transition-colors hover:text-[#6495ED]">
               Método
             </a>
-            <a href="#faq" className="transition-colors hover:text-[#00D084]">
+            <a href="#faq" className="transition-colors hover:text-[#6495ED]">
               FAQ
             </a>
-            <a href="#contacto" className="transition-colors hover:text-[#00D084]">
+            <a href="#contacto" className="transition-colors hover:text-[#6495ED]">
               Contacto
             </a>
           </div>
           <a
             href="#contacto"
-            className="rounded-full bg-white px-4 py-2.5 text-xs font-black uppercase tracking-widest text-black shadow-xl shadow-white/5 transition-all hover:scale-105 hover:bg-[#00D084] active:scale-95 sm:px-6"
+            className="rounded-full bg-white px-4 py-2.5 text-xs font-black uppercase tracking-widest text-black shadow-xl shadow-white/5 transition-all hover:scale-105 hover:bg-[#6495ED] active:scale-95 sm:px-6"
           >
             Pedir propuesta
           </a>
@@ -185,7 +197,7 @@ export default function AgenciaLanding() {
       </header>
 
       <section className="relative z-10 flex flex-col items-center px-6 pb-28 pt-40 text-center sm:pt-56">
-        <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#00D084] shadow-2xl backdrop-blur-md">
+        <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#6495ED] shadow-2xl backdrop-blur-md">
           <Sparkles className="h-3 w-3" />
           Marketing digital estratégico
         </div>
@@ -193,7 +205,7 @@ export default function AgenciaLanding() {
         <h1 className="mb-10 text-balance text-5xl font-black leading-[0.9] tracking-tighter text-white sm:text-7xl md:text-[120px]">
           ELIMINAMOS EL
           <br />
-          <span className="bg-gradient-to-r from-[#00D084] via-emerald-400 to-emerald-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#6495ED] via-sky-400 to-cyan-100 bg-clip-text text-transparent">
             RUIDO DIGITAL.
           </span>
         </h1>
@@ -209,13 +221,13 @@ export default function AgenciaLanding() {
         </p>
 
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/40 px-4 py-2 text-xs font-bold text-zinc-400">
-          <Layout className="h-4 w-4 text-[#00D084]" />
+          <Layout className="h-4 w-4 text-[#6495ED]" />
           {ADDRESS}
         </div>
 
         <a
           href="#contacto"
-          className="mt-10 flex items-center gap-3 rounded-full bg-[#00D084] px-10 py-5 text-lg font-black text-black transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,208,132,0.4)]"
+          className="mt-10 flex items-center gap-3 rounded-full bg-[#6495ED] px-10 py-5 text-lg font-black text-[#0a1628] transition-all hover:scale-105 hover:shadow-[0_0_44px_rgba(100,149,237,0.5)]"
         >
           Pedir propuesta <ArrowRight className="h-5 w-5" />
         </a>
@@ -229,7 +241,7 @@ export default function AgenciaLanding() {
               className="flex items-center gap-20 text-4xl font-black uppercase italic text-zinc-800"
             >
               <span>Performance</span>
-              <TrendingUp className="h-10 w-10 text-[#00D084]" />
+              <TrendingUp className="h-10 w-10 text-[#6495ED]" />
               <span>Branding</span>
               <Award className="h-10 w-10 text-blue-500" />
               <span>Social media</span>
@@ -244,7 +256,7 @@ export default function AgenciaLanding() {
       <section id="servicios" className="relative z-10 px-6 py-24 md:px-8 md:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-xs font-black uppercase tracking-[0.4em] text-[#00D084]">
+            <h2 className="mb-4 text-xs font-black uppercase tracking-[0.4em] text-[#6495ED]">
               Servicios
             </h2>
             <h3 className="text-4xl font-black text-white md:text-5xl">
@@ -259,7 +271,7 @@ export default function AgenciaLanding() {
             {services.map(({ icon: Icon, title, body }) => (
               <SpotlightCard key={title}>
                 <div className="flex flex-col gap-4 p-8 md:flex-row md:items-start">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#00D084]/10 text-[#00D084]">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#6495ED]/10 text-[#6495ED]">
                     <Icon className="h-7 w-7" />
                   </div>
                   <div>
@@ -277,7 +289,7 @@ export default function AgenciaLanding() {
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-20 lg:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-xs font-black uppercase tracking-[0.4em] text-[#00D084]">
+              <h2 className="mb-6 text-xs font-black uppercase tracking-[0.4em] text-[#6495ED]">
                 Metodología Fórmula
               </h2>
               <h3 className="mb-8 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -310,7 +322,7 @@ export default function AgenciaLanding() {
                     key={item.t}
                     className="flex gap-6 rounded-[1.5rem] border border-white/5 bg-white/5 p-6 transition-colors hover:bg-white/10"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#00D084]/10 text-[#00D084]">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#6495ED]/10 text-[#6495ED]">
                       {item.icon}
                     </div>
                     <div>
@@ -323,7 +335,7 @@ export default function AgenciaLanding() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 rounded-2xl border border-white/5 bg-zinc-900/80 p-4">
-                  <BarChart3 className="h-8 w-8 text-[#00D084]" />
+                  <BarChart3 className="h-8 w-8 text-[#6495ED]" />
                   <div>
                     <span className="text-[10px] font-bold uppercase text-zinc-500">
                       Reporting
@@ -343,7 +355,7 @@ export default function AgenciaLanding() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-[#00D084]/20 to-blue-600/20 blur-3xl" />
+              <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-[#6495ED]/20 to-blue-600/20 blur-3xl" />
               <div className="relative overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
@@ -361,7 +373,7 @@ export default function AgenciaLanding() {
       <section id="faq" className="px-6 py-24 md:px-8 md:py-32">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-16 text-center text-4xl font-black text-white md:text-5xl">
-            Preguntas <span className="text-[#00D084]">frecuentes.</span>
+            Preguntas <span className="text-[#6495ED]">frecuentes.</span>
           </h2>
           <div className="space-y-4">
             <AccordionItem
@@ -386,7 +398,7 @@ export default function AgenciaLanding() {
 
       <section id="contacto" className="px-6 pb-24 md:px-8 md:pb-32">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[3rem] border border-white/5 bg-zinc-900/50 p-10 md:rounded-[4rem] md:p-16">
-          <div className="absolute left-1/2 top-0 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-[#00D084]/5 blur-[120px]" />
+          <div className="absolute left-1/2 top-0 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-[#6495ED]/5 blur-[120px]" />
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-black tracking-tighter text-white md:text-5xl">
               Hablemos de tu próximo paso
@@ -428,6 +440,17 @@ export default function AgenciaLanding() {
       </section>
 
       <footer className="border-t border-white/5 bg-black px-6 py-14 text-center md:py-16">
+        <div className="mb-8 flex justify-center">
+          <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-white/15">
+            <Image
+              src="/logo-agencia-formula.png"
+              alt="Agencia Fórmula"
+              width={56}
+              height={56}
+              className="object-contain p-2"
+            />
+          </div>
+        </div>
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600">
           © {new Date().getFullYear()} Agencia Fórmula · Juan Pablo Cravero (Juampi)
         </p>
