@@ -275,8 +275,8 @@ export function AdminDashboard() {
         )}
 
         <p className="mt-10 text-center text-xs text-zinc-600">
-          Acceso privado para Juampi / fórmula AGENCIA. No compartas esta URL ni la
-          contraseña.
+          Acceso privado · fórmula AGENCIA. En Railway los leads persisten en el volumen
+          montado (<code className="text-zinc-500">LEADS_DATA_FILE</code>).
         </p>
       </main>
     </div>

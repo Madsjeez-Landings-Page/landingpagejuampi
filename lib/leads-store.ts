@@ -1,33 +1,18 @@
 import { mkdir, readFile, writeFile } from "fs/promises";
 import path from "path";
-import { get, put } from "@vercel/blob";
 import type { Lead, LeadInput, LeadStatus } from "./leads-types";
 
-const BLOB_PATHNAME = "formula-leads/leads.json";
-const LOCAL_FILE = path.join(process.cwd(), "data", "leads.json");
-
-function useBlob() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+/** Local: data/leads.json · Railway: montá un volumen en /data y usá LEADS_DATA_FILE=/data/leads.json */
+function leadsFilePath(): string {
+  const custom = process.env.LEADS_DATA_FILE?.trim();
+  if (custom) return path.isAbsolute(custom) ? custom : path.join(process.cwd(), custom);
+  return path.join(process.cwd(), "data", "leads.json");
 }
 
 async function readAll(): Promise<Lead[]> {
-  if (useBlob()) {
-    try {
-      const result = await get(BLOB_PATHNAME, {
-        access: "private",
-        token: process.env.BLOB_READ_WRITE_TOKEN,
-      });
-      if (!result || result.statusCode !== 200 || !result.stream) return [];
-      const raw = await new Response(result.stream).text();
-      const data = JSON.parse(raw) as unknown;
-      return Array.isArray(data) ? (data as Lead[]) : [];
-    } catch {
-      return [];
-    }
-  }
-
+  const file = leadsFilePath();
   try {
-    const raw = await readFile(LOCAL_FILE, "utf8");
+    const raw = await readFile(file, "utf8");
     const data = JSON.parse(raw) as unknown;
     return Array.isArray(data) ? (data as Lead[]) : [];
   } catch {
@@ -36,21 +21,10 @@ async function readAll(): Promise<Lead[]> {
 }
 
 async function writeAll(leads: Lead[]): Promise<void> {
+  const file = leadsFilePath();
   const json = JSON.stringify(leads, null, 2);
-
-  if (useBlob()) {
-    await put(BLOB_PATHNAME, json, {
-      access: "private",
-      contentType: "application/json",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-    });
-    return;
-  }
-
-  await mkdir(path.dirname(LOCAL_FILE), { recursive: true });
-  await writeFile(LOCAL_FILE, json, "utf8");
+  await mkdir(path.dirname(file), { recursive: true });
+  await writeFile(file, json, "utf8");
 }
 
 export async function listLeads(): Promise<Lead[]> {

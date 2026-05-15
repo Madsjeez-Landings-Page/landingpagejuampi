@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm run start"
+restartPolicyType = "on_failure"
+
+# Volumen (configurarlo en el dashboard de Railway):
+#   New → Volume → Mount path: /data
+#   Variable: LEADS_DATA_FILE=/data/leads.json
