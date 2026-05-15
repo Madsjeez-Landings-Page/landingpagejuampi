@@ -1,3 +1,5 @@
+import { ThemeToggle } from "../components/theme-toggle";
+
 const INSTAGRAM_AGENCIA =
   "https://www.instagram.com/formula.agencia/";
 const INSTAGRAM_JUAMPI = "https://www.instagram.com/juampicrav/";
@@ -52,6 +54,7 @@ export default function Home() {
             </a>
           </div>
           <div className="flex shrink-0 items-center gap-2">
+            <ThemeToggle />
             <a
               href="#sobre"
               className="hidden text-xs font-medium text-foreground/60 transition hover:text-accent sm:inline"
