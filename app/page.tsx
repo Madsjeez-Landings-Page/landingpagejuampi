@@ -23,6 +23,8 @@ import { BRAND_RGB } from "@/lib/brand";
 
 const INSTAGRAM_AGENCIA = "https://www.instagram.com/formula.agencia/";
 const WA_URL = "https://wa.me/5492227506533";
+/** Madsjeez — consultas por una web similar (+54 9 11 2181-6064) */
+const WA_MADSJEEZ = "https://wa.me/5491121816064";
 const ADDRESS =
   "Intendente Tarigo, B1727 Roque Pérez, Provincia de Buenos Aires, Argentina";
 
@@ -457,6 +459,22 @@ export default function AgenciaLanding() {
         <p className="mx-auto mt-3 max-w-xl text-xs leading-relaxed text-zinc-600">
           {ADDRESS}
         </p>
+        <div className="mx-auto mt-8 max-w-lg border-t border-white/10 pt-6">
+          <p className="text-xs leading-relaxed text-zinc-500">
+            Sitio desarrollado por{" "}
+            <span className="font-semibold text-zinc-400">Madsjeez</span>. ¿Querés una web
+            igual? Tocá el enlace y escribinos por WhatsApp.
+          </p>
+          <a
+            href={WA_MADSJEEZ}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-4 py-2.5 text-sm font-semibold text-[#25D366] transition hover:bg-[#25D366]/20"
+          >
+            <WhatsAppLogo className="h-5 w-5 shrink-0" />
+            WhatsApp Madsjeez
+          </a>
+        </div>
       </footer>
     </div>
   );
