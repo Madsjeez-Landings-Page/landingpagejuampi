@@ -226,11 +226,11 @@ export default function AgenciaLanding() {
           Marketing digital estratégico
         </div>
 
-        <h1 className="mb-10 text-balance text-5xl font-black leading-[0.9] tracking-tighter text-white sm:text-7xl md:text-[120px]">
-          ELIMINAMOS EL
+        <h1 className="mb-10 text-balance text-4xl font-black leading-[0.95] tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+          TU NEGOCIO NECESITA
           <br />
           <span className="bg-gradient-to-r from-[#648CEB] via-sky-400 to-cyan-100 bg-clip-text text-transparent">
-            RUIDO DIGITAL.
+            UNA ESTRATEGIA DIGITAL
           </span>
         </h1>
 
