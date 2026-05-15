@@ -170,6 +170,9 @@ export default function AgenciaLanding() {
             />
           </a>
           <div className="hidden items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-400 lg:flex">
+            <a href="#sobre" className="transition-colors hover:text-[#648CEB]">
+              Sobre
+            </a>
             <a href="#servicios" className="transition-colors hover:text-[#648CEB]">
               Servicios
             </a>
@@ -207,12 +210,12 @@ export default function AgenciaLanding() {
         </h1>
 
         <p className="mb-14 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-2xl">
-          Potenciamos tu negocio con marketing digital estratégico. En{" "}
-          <span className="font-semibold text-white">fórmula</span>, Juan Pablo
-          Cravero (Juampi) —lic. en Comunicación enfocado en marketing— acompaña marcas
-          a transformar seguidores en una comunidad sólida.{" "}
+          En <span className="font-semibold text-white">Fórmula</span> ayudamos a
+          negocios y marcas a mejorar su comunicación digital a través de estrategia,
+          contenido y creatividad.{" "}
           <span className="text-zinc-500">
-            Atención por WhatsApp e Instagram las 24 horas.
+            Juan Pablo Cravero (Juampi) —lic. en Comunicación enfocado en marketing—
+            acompaña la ejecución. Atención por WhatsApp e Instagram las 24 horas.
           </span>
         </p>
 
@@ -227,6 +230,25 @@ export default function AgenciaLanding() {
         >
           Pedir propuesta <ArrowRight className="h-5 w-5" />
         </a>
+      </section>
+
+      <section
+        id="sobre"
+        className="relative z-10 border-t border-white/5 bg-zinc-950/40 px-6 py-20 md:px-8 md:py-28"
+      >
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-3 text-xs font-black uppercase tracking-[0.4em] text-[#648CEB]">
+            Sobre Fórmula
+          </h2>
+          <p className="mb-8 text-lg leading-relaxed text-zinc-400 md:text-xl">
+            Trabajamos en gestión de redes sociales, producción de contenido y
+            publicidad digital, desarrollando propuestas pensadas para cada negocio y
+            enfocadas en construir una presencia profesional, clara y auténtica.
+          </p>
+          <p className="border-l-2 border-[#648CEB]/60 pl-6 text-xl font-medium leading-snug text-white md:text-2xl">
+            Creemos que detrás de cada marca tiene que haber una estrategia real.
+          </p>
+        </div>
       </section>
 
       <div className="z-20 flex overflow-hidden border-y border-white/5 bg-zinc-900/50 py-8">
@@ -259,8 +281,8 @@ export default function AgenciaLanding() {
               Lo que hacemos en fórmula
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-500">
-              Meta Ads, contenido, redes y estrategia — con Juampi al frente del ritmo
-              diario y la comunidad.
+              Redes, contenido y pauta digital — propuestas a medida para una presencia
+              profesional y auténtica, con Juampi al frente del ritmo diario.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
