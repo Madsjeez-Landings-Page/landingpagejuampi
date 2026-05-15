@@ -88,7 +88,7 @@ function AccordionItem({ title, content }: { title: string; content: string }) {
   );
 }
 
-/** Lockup con texto marino: sobre #030303 no contrasta; chip crema alinea con manual y asegura legibilidad. */
+/** Lockup negativo (crema sobre oscuro); PNG con fondo #030303 tras chroma suave en build de assets. */
 function FormulaBrandLogo({
   priority = false,
   size,
@@ -98,24 +98,18 @@ function FormulaBrandLogo({
 }) {
   const header = size === "header";
   return (
-    <span
-      className={`inline-flex items-center rounded-xl bg-[#f2efe8] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_0_0_1px_rgba(10,24,46,0.08)] ${
-        header ? "px-2.5 py-1.5" : "px-3 py-2"
-      }`}
-    >
-      <Image
-        src="/logo-formula-lockup.png"
-        alt="fórmula AGENCIA"
-        width={header ? 200 : 240}
-        height={header ? 40 : 48}
-        priority={priority}
-        className={
-          header
-            ? "h-8 w-auto max-w-[180px] object-contain object-left sm:h-9 sm:max-w-[220px]"
-            : "h-10 w-auto max-w-[260px] object-contain sm:h-11"
-        }
-      />
-    </span>
+    <Image
+      src="/logo-formula-agencia-negativo.png"
+      alt="fórmula AGENCIA"
+      width={837}
+      height={255}
+      priority={priority}
+      className={
+        header
+          ? "h-11 w-auto max-w-[min(300px,56vw)] object-contain object-left sm:h-12 sm:max-w-[360px] lg:max-w-[400px]"
+          : "h-12 w-auto max-w-[min(90vw,480px)] object-contain sm:h-14 sm:max-w-[520px]"
+      }
+    />
   );
 }
 
@@ -188,7 +182,7 @@ export default function AgenciaLanding() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8">
           <a
             href="/"
-            className="flex shrink-0 items-center"
+            className="flex min-w-0 shrink items-center"
             aria-label="fórmula AGENCIA — inicio"
           >
             <FormulaBrandLogo priority size="header" />
