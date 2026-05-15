@@ -12,7 +12,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://formulaagencia.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   title: "fórmula AGENCIA | Juan Pablo Cravero (Juampi) — Marketing digital",
   description:
     "Estrategia, contenido y creatividad para mejorar tu comunicación digital. Redes, producción y publicidad digital. Roque Pérez, Buenos Aires · @formula.agencia.",
