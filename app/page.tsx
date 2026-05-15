@@ -156,16 +156,14 @@ export default function AgenciaLanding() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8">
           <a href="/" className="flex items-center gap-3" aria-label="Agencia Fórmula — inicio">
-            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-white/20">
-              <Image
-                src="/logo-agencia-formula.png"
-                alt=""
-                width={48}
-                height={48}
-                className="object-contain p-1.5"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo-agencia-formula.png"
+              alt=""
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
+              priority
+            />
             <div className="flex flex-col">
               <span className="text-sm font-black uppercase tracking-tighter text-white">
                 Agencia Fórmula
@@ -443,15 +441,13 @@ export default function AgenciaLanding() {
 
       <footer className="border-t border-white/5 bg-black px-6 py-14 text-center md:py-16">
         <div className="mb-8 flex justify-center">
-          <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-white/15">
-            <Image
-              src="/logo-agencia-formula.png"
-              alt="Agencia Fórmula"
-              width={56}
-              height={56}
-              className="object-contain p-2"
-            />
-          </div>
+          <Image
+            src="/logo-agencia-formula.png"
+            alt="Agencia Fórmula"
+            width={56}
+            height={56}
+            className="h-14 w-14 object-contain drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]"
+          />
         </div>
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600">
           © {new Date().getFullYear()} Agencia Fórmula · Juan Pablo Cravero (Juampi)
