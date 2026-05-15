@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { BRAND_RGB } from "@/lib/brand";
 
 /** Editá esta lista con clientes y casos reales cuando los tengas. */
@@ -48,13 +48,37 @@ export const CLIENT_CASES = [
   },
 ] as const;
 
-const AUTO_MS = 6500;
+const AUTO_MS = 5500;
+
+function TrustStars({ label }: { label: string }) {
+  return (
+    <div
+      className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+      role="img"
+      aria-label="Cinco estrellas. Los clientes recomiendan fórmula AGENCIA"
+    >
+      <div className="flex items-center gap-1">
+        {Array.from({ length: 5 }, (_, i) => (
+          <Star
+            key={i}
+            className="h-6 w-6 shrink-0 fill-amber-400 text-amber-400 drop-shadow-[0_0_12px_rgba(251,191,36,0.35)] sm:h-7 sm:w-7"
+            aria-hidden
+          />
+        ))}
+      </div>
+      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-100/90 sm:text-right">
+        {label}
+      </p>
+    </div>
+  );
+}
 
 export function ClientCasesCarousel() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [progress, setProgress] = useState(0);
   const resumeAt = useRef<number>(0);
+  const progressRaf = useRef<number>(0);
 
   const count = CLIENT_CASES.length;
 
@@ -69,19 +93,44 @@ export function ClientCasesCarousel() {
   const go = useCallback(
     (dir: -1 | 1) => {
       setIndex((i) => (i + dir + count) % count);
-      resumeAt.current = Date.now() + 20000;
+      resumeAt.current = Date.now() + 18000;
     },
     [count],
   );
 
   useEffect(() => {
-    if (paused || reduceMotion) return;
+    if (reduceMotion) return;
     const t = setInterval(() => {
       if (Date.now() < resumeAt.current) return;
       setIndex((i) => (i + 1) % count);
     }, AUTO_MS);
     return () => clearInterval(t);
-  }, [paused, reduceMotion, count]);
+  }, [reduceMotion, count]);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setProgress(0);
+      return;
+    }
+    setProgress(0);
+    const slideStarted = Date.now();
+    const tick = () => {
+      const now = Date.now();
+      if (now < resumeAt.current) {
+        setProgress(0);
+        progressRaf.current = requestAnimationFrame(tick);
+        return;
+      }
+      const effectiveStart = Math.max(slideStarted, resumeAt.current);
+      const p = Math.min(1, (now - effectiveStart) / AUTO_MS);
+      setProgress(p);
+      if (p < 1) {
+        progressRaf.current = requestAnimationFrame(tick);
+      }
+    };
+    progressRaf.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(progressRaf.current);
+  }, [index, reduceMotion]);
 
   const c = CLIENT_CASES[index];
 
@@ -90,8 +139,6 @@ export function ClientCasesCarousel() {
       id="casos"
       className="relative z-10 border-y border-white/5 bg-zinc-950/30 px-6 py-24 md:px-8 md:py-32"
       aria-labelledby="casos-heading"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-90"
@@ -122,6 +169,22 @@ export function ClientCasesCarousel() {
             background: `linear-gradient(145deg, rgba(24,24,27,0.9) 0%, rgba(9,9,11,0.95) 100%)`,
           }}
         >
+          {!reduceMotion && (
+            <div
+              className="h-1 w-full bg-white/[0.06]"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(progress * 100)}
+              aria-label="Progreso hasta el siguiente caso"
+            >
+              <div
+                className="h-full bg-gradient-to-r from-[#648CEB] to-sky-400"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
+          )}
+
           <div
             className="pointer-events-none absolute -right-20 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full opacity-30 blur-3xl"
             style={{
@@ -134,6 +197,8 @@ export function ClientCasesCarousel() {
               className="mb-6 h-10 w-10 text-[#648CEB]/50"
               aria-hidden
             />
+
+            <TrustStars label="Recomiendan fórmula AGENCIA · 5 estrellas" />
 
             <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-[#648CEB]">
               {c.tag}
@@ -205,8 +270,9 @@ export function ClientCasesCarousel() {
           aria-live="polite"
         >
           Caso {index + 1} de {count}
-          {paused ? " · Carrusel en pausa" : ""}
-          {reduceMotion ? " · Avance manual" : ""}
+          {reduceMotion
+            ? " · Avance manual (accesibilidad)"
+            : " · Carrusel automático"}
         </p>
       </div>
     </section>
