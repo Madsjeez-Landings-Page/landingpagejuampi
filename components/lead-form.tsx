@@ -95,7 +95,7 @@ export function LeadForm() {
             required
             minLength={2}
             maxLength={120}
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none ring-[#6495ED]/0 transition placeholder:text-zinc-600 focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none ring-[#648CEB]/0 transition placeholder:text-zinc-600 focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             placeholder="Juan Pérez"
           />
         </div>
@@ -107,7 +107,7 @@ export function LeadForm() {
             id="lead-company"
             name="company"
             maxLength={160}
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             placeholder="Opcional"
           />
         </div>
@@ -124,7 +124,7 @@ export function LeadForm() {
             type="email"
             required
             autoComplete="email"
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             placeholder="nombre@empresa.com"
           />
         </div>
@@ -140,7 +140,7 @@ export function LeadForm() {
             minLength={8}
             maxLength={40}
             autoComplete="tel"
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             placeholder="+54 9 …"
           />
         </div>
@@ -155,7 +155,7 @@ export function LeadForm() {
             id="lead-service"
             name="service"
             required
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             defaultValue=""
           >
             {SERVICE_OPTIONS.map((o) => (
@@ -172,7 +172,7 @@ export function LeadForm() {
           <select
             id="lead-budget"
             name="budget"
-            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
             defaultValue=""
           >
             {BUDGET_OPTIONS.map((o) => (
@@ -195,7 +195,7 @@ export function LeadForm() {
           minLength={20}
           maxLength={4000}
           rows={5}
-          className="w-full resize-y rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#6495ED]/50 focus:ring-2 focus:ring-[#6495ED]/20"
+          className="w-full resize-y rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#648CEB]/50 focus:ring-2 focus:ring-[#648CEB]/20"
           placeholder="Ej.: queremos vender más en Instagram, lanzar pauta, mejorar el mensaje de marca…"
         />
       </div>
@@ -205,10 +205,10 @@ export function LeadForm() {
           name="consent"
           type="checkbox"
           required
-          className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-black/40 text-[#6495ED] focus:ring-[#6495ED]/30"
+          className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-black/40 text-[#648CEB] focus:ring-[#648CEB]/30"
         />
         <span>
-          Acepto que Agencia Fórmula use mis datos solo para responder esta consulta,
+          Acepto que fórmula AGENCIA use mis datos solo para responder esta consulta,
           según la normativa de protección de datos vigente. *
         </span>
       </label>
@@ -216,13 +216,13 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-full bg-[#6495ED] py-4 text-sm font-black uppercase tracking-widest text-[#0a1628] transition hover:shadow-[0_0_32px_rgba(100,149,237,0.4)] disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-full bg-[#648CEB] py-4 text-sm font-black uppercase tracking-widest text-[#0a1628] transition hover:shadow-[0_0_32px_rgba(100,140,235,0.4)] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "loading" ? "Enviando…" : "Enviar consulta"}
       </button>
 
       {status === "success" && (
-        <p className="rounded-xl border border-[#6495ED]/30 bg-[#6495ED]/10 px-4 py-3 text-center text-sm text-sky-100">
+        <p className="rounded-xl border border-[#648CEB]/30 bg-[#648CEB]/10 px-4 py-3 text-center text-sm text-sky-100">
           {message}
         </p>
       )}

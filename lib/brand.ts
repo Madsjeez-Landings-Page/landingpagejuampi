@@ -1,5 +1,8 @@
-/** Paleta alineada al logo Agencia Fórmula (azul cornflower + navy). */
-export const BRAND = "#6495ED";
-export const BRAND_NAVY = "#0a1628";
-/** Para usar en rgba() */
-export const BRAND_RGB = "100, 149, 237";
+/**
+ * Paleta manual de marca — fórmula (isólogo / principal / bajada).
+ * Azul principal + navy institucional.
+ */
+export const BRAND = "#648CEB";
+export const BRAND_NAVY = "#0A184E";
+/** Para rgba() coherente con BRAND */
+export const BRAND_RGB = "100, 140, 235";
